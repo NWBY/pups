@@ -1,0 +1,29 @@
+{
+ "name": "beluga",
+ "description": "Enter your project description",
+ "author": {
+  "name": "NWBY",
+  "email": "sam.newby19@gmail.com"
+ },
+ "version": "0.1.0",
+ "binaryname": "beluga",
+ "frontend": {
+  "dir": "frontend",
+  "install": "npm install",
+  "build": "npm run build",
+  "bridge": "src",
+  "serve": "npm run serve"
+ },
+ "tags": "",
+ "WailsVersion": "",
+ "CrossCompile": false,
+ "Platform": "",
+ "Architecture": "",
+ "LdFlags": "",
+ "GoPath": "",
+ "UseFirebug": false,
+ "platforms": [
+  "linux",
+  "darwin"
+ ]
+}
