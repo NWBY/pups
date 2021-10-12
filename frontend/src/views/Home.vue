@@ -12,8 +12,6 @@ export default {
   components: {
   },
   setup() {
-    const message = ref("Click the Icon");
-
     const getMessage = () => {
       window.backend
         .Beluga
