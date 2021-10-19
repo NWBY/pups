@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <containers-list :containers="containers"></containers-list>
+    <volumes-list :volumes="volumes"></volumes-list>
   </div>
 </template>
 
@@ -8,17 +9,21 @@
 import { ref } from "vue";
 
 import ContainersList from '../components/containers/List.vue'
+import VolumesList from '../components/volumes/List.vue'
 
 export default {
   name: "Home",
   components: {
-    ContainersList
+    ContainersList,
+    VolumesList
   },
   mounted() {
     this.getContainers()
+    this.getVolumes()
   },
   setup() {
     let containers = ref([])
+    let volumes = ref([])
 
     const getContainers = () => {
       window.backend
@@ -32,9 +37,23 @@ export default {
         });
     };
 
+    const getVolumes = () => {
+      window.backend
+        .Beluga
+        .GetAllVolumes()
+        .then(res => {
+          volumes.value = res
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
     return {
       containers,
-      getContainers
+      getContainers,
+      volumes,
+      getVolumes
     };
   },
 };

@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <table class="table">
+    <div style="text-align: left;">
+        <h2>Containers</h2>
+        <table class="table" v-if="containers.length">
             <thead>
                 <th>Image</th>
                 <th>State</th>
@@ -10,7 +11,7 @@
                 <item v-for="(container, index) in containers" :key="index" :item="container"></item>
             </tbody>
         </table>
-        
+        <p v-else>No containers running</p>
     </div>
 </template>
 
