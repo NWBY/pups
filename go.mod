@@ -1,4 +1,4 @@
-module github.com/NWBY/beluga
+module github.com/NWBY/pups
 
 go 1.16
 
