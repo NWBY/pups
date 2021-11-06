@@ -1,3 +1,3 @@
-# Beluga
+# Pups
 
-A Desktop application for interacting with Docker and your local containers.
+A Desktop application for interacting with Podman and your local containers.

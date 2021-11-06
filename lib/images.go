@@ -1,19 +1,12 @@
 package lib
 
 import (
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
+	"github.com/containers/podman/v3/pkg/bindings/images"
+	"github.com/containers/podman/v3/pkg/domain/entities"
 )
 
-func (b *Beluga) GetAllImages() []types.ImageSummary {
-	opts := types.ImageListOptions{
-		All:     true,
-		Filters: filters.NewArgs(),
-	}
-	imgs, err := b.BClient.ImageList(b.BContext, opts)
-	if err != nil {
-		panic("Error getting Docker images information")
-	}
+func (p *Pups) GetAllImages() []*entities.ImageSummary {
+	images, _ := images.List(p.PConnection, &images.ListOptions{})
 
-	return imgs
+	return images
 }

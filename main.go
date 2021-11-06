@@ -3,7 +3,7 @@ package main
 import (
 	_ "embed"
 
-	"github.com/NWBY/beluga/lib"
+	"github.com/NWBY/pups/lib"
 	"github.com/wailsapp/wails"
 )
 
@@ -18,11 +18,11 @@ func main() {
 	app := wails.CreateApp(&wails.AppConfig{
 		Width:  1024,
 		Height: 768,
-		Title:  "beluga",
+		Title:  "pups",
 		JS:     js,
 		CSS:    css,
 		Colour: "#131313",
 	})
-	app.Bind(lib.NewBeluga())
+	app.Bind(lib.NewPups())
 	app.Run()
 }

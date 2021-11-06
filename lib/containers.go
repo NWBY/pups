@@ -1,25 +1,12 @@
 package lib
 
 import (
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
+	"github.com/containers/podman/v3/pkg/bindings/containers"
+	"github.com/containers/podman/v3/pkg/domain/entities"
 )
 
-func (b *Beluga) GetAllContainers() []types.Container {
-	opts := types.ContainerListOptions{
-		Quiet:   false,
-		Size:    true,
-		All:     true,
-		Latest:  true,
-		Since:   "",
-		Before:  "",
-		Limit:   10,
-		Filters: filters.NewArgs(),
-	}
-	cons, err := b.BClient.ContainerList(b.BContext, opts)
-	if err != nil {
-		panic("Error getting Docker containers information")
-	}
+func (p *Pups) GetAllContainers() []entities.ListContainer {
+	containers, _ := containers.List(p.PConnection, &containers.ListOptions{})
 
-	return cons
+	return containers
 }
